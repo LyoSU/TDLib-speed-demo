@@ -29,7 +29,9 @@ tdl.client.on('update', async (update) => {
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
-bot.start((ctx) => ctx.replyWithHTML('telegraf'))
-bot.hears(() => true, (ctx) => ctx.replyWithHTML(`<code>${JSON.stringify(ctx.update, null, 2)}</code>`))
+bot.use((ctx) => {
+  if (ctx.message && ctx.message.text === '/start') ctx.replyWithHTML('telegraf')
+  else ctx.replyWithHTML(`<code>${JSON.stringify(ctx.update, null, 2)}</code>`)
+})
 
 bot.launch()
