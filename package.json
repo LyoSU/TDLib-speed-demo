@@ -1,6 +1,6 @@
 {
   "name": "tdlib-speed-demo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "TDLib vs telegraf.js",
   "main": "index.js",
   "scripts": {
